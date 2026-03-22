@@ -1,0 +1,30 @@
+{
+  "name": "melodashsmartcontract",
+  "version": "1.0.0",
+  "description": "> Plataforma de streaming musical com cashback em crypto na rede **Monad**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HerickDan/meloDashSmartContract.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HerickDan/meloDashSmartContract/issues"
+  },
+  "homepage": "https://github.com/HerickDan/meloDashSmartContract#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^7.0.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^25.5.0",
+    "dotenv": "^17.3.1",
+    "ethers": "^6.16.0",
+    "hardhat": "^3.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
