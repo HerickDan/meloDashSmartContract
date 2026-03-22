@@ -1,6 +1,7 @@
 import { ethers } from "hardhat";
+import * as dotenv from "dotenv";
 
-async function main() {
+dotenv.config();
   const [deployer] = await ethers.getSigners();
 
   console.log("═══════════════════════════════════════════");
@@ -13,11 +14,17 @@ async function main() {
   // Ajuste conforme o preço do MON em relação ao USD
   const SUBSCRIPTION_PRICE = ethers.parseEther("20");
 
+  // Carteiras fixas (do .env)
+  const PLATFORM_WALLET = process.env.PLATFORM_WALLET || "0x742d35Cc6634C0532925a3b844Bc454e4438f44e";
+  const ARTIST_WALLET = process.env.ARTIST_WALLET || "0x742d35Cc6634C0532925a3b844Bc454e4438f44e";
+
   console.log("\n📦 Fazendo deploy do contrato MeloDash...");
   console.log("   Preço da assinatura:", ethers.formatEther(SUBSCRIPTION_PRICE), "MON");
+  console.log("   Plataforma:", PLATFORM_WALLET);
+  console.log("   Artista:", ARTIST_WALLET);
 
   const MeloDash = await ethers.getContractFactory("MeloDash");
-  const melodash = await MeloDash.deploy(SUBSCRIPTION_PRICE);
+  const melodash = await MeloDash.deploy(SUBSCRIPTION_PRICE, PLATFORM_WALLET, ARTIST_WALLET);
 
   await melodash.waitForDeployment();
 
